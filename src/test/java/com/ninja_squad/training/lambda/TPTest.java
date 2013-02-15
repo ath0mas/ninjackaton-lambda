@@ -104,6 +104,21 @@ public class TPTest {
         assertEquals(Arrays.asList(3L, 6L),
                      tweetsBySender.get("@jbnizet").stream().map(Tweet::getId).collect(Collectors.toList()));
     }
+    @Test
+    public void step9_bis() {
+        Map<String, List<Tweet>> tweetsBySender = TP.step9_bis();
+
+        assertEquals(Arrays.asList(5L),
+                tweetsBySender.get("@brian_goetz").stream().map(Tweet::getId).collect(Collectors.toList()));
+        assertEquals(Arrays.asList(2L),
+                tweetsBySender.get("@cedric_exbrayat").stream().map(Tweet::getId).collect(Collectors.toList()));
+        assertEquals(Arrays.asList(1L),
+                tweetsBySender.get("@clacote").stream().map(Tweet::getId).collect(Collectors.toList()));
+        assertEquals(Arrays.asList(4L),
+                tweetsBySender.get("@agnes_crepet").stream().map(Tweet::getId).collect(Collectors.toList()));
+        assertEquals(Arrays.asList(3L, 6L),
+                tweetsBySender.get("@jbnizet").stream().map(Tweet::getId).collect(Collectors.toList()));
+    }
 
     @Test
     public void step10() {
@@ -123,7 +138,12 @@ public class TPTest {
         assertEquals(31, stats.getAverage());
         assertEquals(188, stats.getTotal());
     }
-
+    @Test
+    public void step11_bis() {
+        TP.Stats stats = TP.step11_bis();
+        assertEquals(31, stats.getAverage());
+        assertEquals(188, stats.getTotal());
+    }
 
     @Test
     public void step12() {
